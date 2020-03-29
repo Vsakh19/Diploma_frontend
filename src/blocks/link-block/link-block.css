@@ -1,0 +1,6 @@
+@import url('./__link/link-block__link.css');
+@import url('./__img/link-block__img.css');
+
+.link-block{
+    margin: 32px 106px 26px 0;
+}

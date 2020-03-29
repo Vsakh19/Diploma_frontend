@@ -1,0 +1,7 @@
+.news-article__background{
+    background-image: url("../../../images/image_08.png");
+    width: 400px;
+    height: 272px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+}

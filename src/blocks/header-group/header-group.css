@@ -1,0 +1,7 @@
+@import url('./__link/header-group__link.css');
+@import url('./__auth-link/header-group__auth-link.css');
+@import url('./__logout-pic/header-group__logout-pic.css');
+
+.header-group{
+    margin: 2px 0 0 0;
+}

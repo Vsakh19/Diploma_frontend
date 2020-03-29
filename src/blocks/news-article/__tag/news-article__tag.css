@@ -1,0 +1,15 @@
+.news-article__tag{
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    top: 24px;
+    left: 24px;
+}

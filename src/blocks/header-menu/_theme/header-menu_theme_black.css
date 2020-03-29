@@ -1,0 +1,10 @@
+.header-menu_theme_black{
+    box-shadow: inset 0px -1px 0px #D1D2D6;
+    min-height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 0 104px 0 104px;
+}

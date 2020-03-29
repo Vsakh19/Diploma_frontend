@@ -1,0 +1,17 @@
+@import url('./__background/news-article__background.css');
+@import url('./__save/news-article__save.css');
+@import url('./__flag/news-article__flag.css');
+@import url('./__date/news-article__date.css');
+@import url('./__heading/news-article__heading.css');
+@import url('./__text/news-article__text.css');
+@import url('./__media/news-article__media.css');
+@import url('./__tag/news-article__tag.css');
+@import url('./__remove/news-article__remove.css');
+
+.news-article{
+    width: 400px;
+    height: 576px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    position: relative;
+}

@@ -1,0 +1,20 @@
+.search-form__submit-button{
+    background: #2F71E5;
+    border: transparent;
+    box-shadow: 0 5px 15px rgba(14, 26, 57, 0.2);
+    border-radius: 100px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 18px 54px 22px 54px;
+    position: absolute;
+    bottom: 0;
+    left: 447px;
+    cursor: pointer;
+}

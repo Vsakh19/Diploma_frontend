@@ -1,0 +1,17 @@
+.show-more-btn{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1A1B22;
+    background: #FFFFFF;
+    border-radius: 80px;
+    padding: 18px 84px 22px 84px;
+    border: none;
+    margin: auto;
+    cursor: pointer;
+}

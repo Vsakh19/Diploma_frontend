@@ -1,0 +1,6 @@
+@import url('./__field/search-form__field.css');
+@import url('./__submit-button/search-form__submit-button.css');
+
+.search-form{
+    position: relative;
+}

@@ -1,0 +1,8 @@
+@import url('./__poweredby/footer__poweredby.css');
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #FFFFFF;
+}

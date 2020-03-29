@@ -1,0 +1,7 @@
+@import url('./__text/comment__text.css');
+@import url('./__heading/comment__heading.css');
+
+.comment{
+    width: 600px;
+    margin: 51px 0 0 56px;
+}

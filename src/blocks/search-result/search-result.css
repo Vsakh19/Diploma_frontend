@@ -1,0 +1,6 @@
+@import url('./__heading/search-result__heading.css');
+
+.search-result{
+    padding: 80px 104px;
+    background: #F5F6F7;
+}

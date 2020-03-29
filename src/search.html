@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+        <title>NewsExplorer</title>
+</head>
+<body>
+<div class = "page">
+    <header class="header">
+        <div class="header-menu">
+            <p class="header-menu__heading">NewsExplorer</p>
+            <div class="header-group">
+                <a href="/" class="header-group__link_active">Главная</a>
+                <a href="saved.html" class="header-group__link disabled">Сохранённые статьи</a>
+                <a href="#" class="header-group__auth-link">Авторизоваться</a>
+                <a href="#" class="header-group__auth-link disabled">Грета <img class="header-group__logout-pic" alt="logout" src="./images/logout.png"></a>
+            </div>
+        </div>
+        <div class="content-field">
+            <div class="header-content">
+                <h1 class="header-content__heading">Что в мире творится?</h1>
+                <p class="header-content__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+                <form class="search-form">
+                    <input class="search-form__field" type="text" placeholder="Введите тему новости">
+                    <button class="search-form__submit-button" type="submit">Искать</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section class="search-result">
+        <h2 class="search-result__heading">Результаты поиска</h2>
+        <div class="news-grid">
+            <div class="news-article">
+                <div class="news-article__background"></div>
+                <div class="news-article__save">
+                    <img alt="save" src="./images/Rectangle%208.png" class="news-article__flag">
+                </div>
+                <p class="news-article__date">2 августа, 2019</p>
+                <h3 class="news-article__heading">Национальное достояние – парки</h3>
+                <p class="news-article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                    складываться система национальных парков – охраняемых территорий, где и сегодня каждый может
+                    приобщиться к природе.</p>
+                <p class="news-article__media">Лента.ру</p>
+            </div>
+            <div class="news-article">
+                <div class="news-article__background"></div>
+                <div class="news-article__save">
+                    <img alt="save" src="./images/Rectangle_active.png" class="news-article__flag">
+                </div>
+                <p class="news-article__date">2 августа, 2019</p>
+                <h3 class="news-article__heading">Национальное достояние – парки</h3>
+                <p class="news-article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                    складываться система национальных парков – охраняемых территорий, где и сегодня каждый может
+                    приобщиться к природе.</p>
+                <p class="news-article__media">Лента.ру</p>
+            </div>
+            <div class="news-article">
+                <div class="news-article__background"></div>
+                <div class="news-article__save">
+                    <img alt="save" src="./images/Rectangle%208.png" class="news-article__flag">
+                </div>
+                <p class="news-article__date">2 августа, 2019</p>
+                <h3 class="news-article__heading">Национальное достояние – парки</h3>
+                <p class="news-article__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала
+                    складываться система национальных парков – охраняемых территорий, где и сегодня каждый может
+                    приобщиться к природе.</p>
+                <p class="news-article__media">Лента.ру</p>
+            </div>
+
+        </div>
+        <button class="show-more-btn">Показать еще</button>
+    </section>
+    <section class="about">
+        <img class="author-pic" alt="author picture" src="./images/image-03.png">
+        <div class="comment">
+            <h2 class="comment__heading">Об авторе</h2>
+            <p class="comment__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.<br><br>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        </div>
+    </section>
+    <footer class="footer">
+        <p class="footer__poweredby">© 2020 Supersite, Powered by News API</p>
+        <div class="link-block">
+            <a href="/" class="link-block__link">Главная</a>
+            <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
+            <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="images/Git.png"></a>
+            <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="images/Facebook.png"></a>
+        </div>
+    </footer>
+</div>
+<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>
