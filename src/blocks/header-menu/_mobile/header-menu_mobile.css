@@ -1,6 +1,7 @@
 @import url('./__button/header-menu_mobile__button.css');
 @import url('./_black/header-menu_mobile_black.css');
 @import url('./__close-button/header-menu_mobile__close-button.css');
+@import url('./_white/header-menu_mobile_white.css');
 
 .header-menu_mobile{
     z-index: 2;
