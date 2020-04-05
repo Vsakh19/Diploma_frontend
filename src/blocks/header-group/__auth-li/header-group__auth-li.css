@@ -1,0 +1,16 @@
+.header-group__auth-li{
+    margin: 35px 5% 0 5%;
+    position: relative;
+}
+
+.header-group__auth-li:nth-of-type(3){
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-group__auth-li:nth-of-type(4){
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}

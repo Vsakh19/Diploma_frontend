@@ -1,6 +1,6 @@
 @import url('./_black/header-menu_mobile__close-button_black.css');
 
-header-menu_mobile__close-button{
+.header-menu_mobile__close-button{
     width: 24px;
     height: 24px;
     background-image: url("../../../../images/back.png");
