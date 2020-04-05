@@ -7,3 +7,15 @@
     line-height: 22px;
     color: #B6BCBF;
 }
+
+@media only screen and (max-width : 1024px) {
+    .footer__poweredby{
+        margin: 24px 0 18px 40px;
+    }
+}
+
+@media only screen and (max-width : 770px) {
+    .footer__poweredby{
+        margin: 24px 0 18px 0;
+    }
+}

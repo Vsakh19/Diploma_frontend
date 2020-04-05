@@ -6,3 +6,15 @@
 .header-saved-content{
     padding: 40px 0 56px 104px;
 }
+
+@media only screen and (max-width : 768px) {
+    .header-saved-content{
+        padding: 24px 0 32px 40px;
+    }
+}
+
+@media only screen and (max-width : 560px) {
+    .header-saved-content{
+        padding: 8px 0 32px 16px;
+    }
+}

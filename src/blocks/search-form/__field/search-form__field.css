@@ -18,3 +18,16 @@
     line-height: 22px;
     color: #B6BCBF;
 }
+
+@media only screen and (max-width : 900px) {
+    .search-form__field{
+        width: 448px;
+        height: 56px;
+    }
+}
+
+@media only screen and (max-width : 520px) {
+    .search-form__field{
+        width: 100%;
+    }
+}

@@ -1,5 +1,19 @@
 @import url('./__reg/popup__reg.css');
 @import url('./__shadow/popup__shadow.css');
+@import url('./__regform/popup__regform.css');
+@import url('./__close/popup__close.css');
+@import url('./__label/popup__label.css');
+@import url('./__input-title/popup__input-title.css');
+@import url('./__input/popup__input.css');
+@import url('./__submit/popup__submit.css');
+@import url('./__underlink/popup__underlink.css');
+@import url('./__undernote/popup__undernote.css');
+@import url('./__registered/popup_registered.css');
+@import url('./__login/popup__login.css');
+@import url('./__label-registered/popup__label-registered.css');
+
+
 
 .popup{
+
 }

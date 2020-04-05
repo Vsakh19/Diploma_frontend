@@ -1,0 +1,10 @@
+.popup__login{
+    font-family: Inter;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #2F71E5;
+    margin: 14px 79px 51px 36px;
+}

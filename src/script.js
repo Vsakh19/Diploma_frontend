@@ -8,3 +8,4 @@ import './images/Rectangle_active.png';
 import './images/logout_black.png';
 import './images/trash.png';
 import './images/trash_inactive.png';
+import './images/close.png';

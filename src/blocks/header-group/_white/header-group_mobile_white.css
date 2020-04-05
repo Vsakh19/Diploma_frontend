@@ -1,0 +1,14 @@
+.header-group_mobile_white{
+    background: #FFFFFF;;
+    display: none;
+    flex-direction: column;
+    padding-bottom: 24px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+@media only screen and (max-width : 560px) {
+    .header-group_mobile_white{
+        display: flex;
+    }
+}

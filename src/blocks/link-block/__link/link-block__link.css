@@ -9,3 +9,22 @@
     text-align: center;
     color: #1A1B22;
 }
+
+@media only screen and (max-width : 770px) {
+    .link-block__link:first-of-type{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block__link{
+        line-height: 48px;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block__link{
+        margin-left: 0;
+        text-align: left;
+    }
+}

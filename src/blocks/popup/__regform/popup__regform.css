@@ -1,0 +1,7 @@
+.popup__regform{
+    margin: 34px 36px 28px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

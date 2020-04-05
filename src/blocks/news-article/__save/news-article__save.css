@@ -9,4 +9,31 @@
     position: absolute;
     top: 24px;
     right: 24px;
+    cursor: pointer;
+    background-image: url("../../../images/Rectangle 8.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.news-article__save:hover{
+    background-image: url("../../../images/Rectangle_hover.png");
+}
+
+.news-article__save:active{
+    background-image: url("../../../images/Rectangle_active.png");
+}
+
+
+@media only screen and (max-width : 1024px) {
+    .news-article__save{
+        top: 8px;
+        right: 8px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-article__save{
+        top: 16px;
+        right: 16px;
+    }
 }

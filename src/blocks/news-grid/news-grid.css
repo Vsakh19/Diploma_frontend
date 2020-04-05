@@ -5,3 +5,31 @@
     margin: 64px 0;
     justify-content: center;
 }
+
+@media only screen and (max-width : 1440px) {
+    .news-grid{
+        grid: auto-flow / 300px 300px 300px;
+        grid-gap: 10px;
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    .news-grid {
+        grid: auto-flow / 224px 224px 224px;
+        grid-gap: 8px;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .news-grid{
+        grid: auto-flow / 224px 224px;
+        grid-gap: 24px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-grid{
+        grid: auto-flow / 288px;
+        grid-gap: 10px;
+    }
+}

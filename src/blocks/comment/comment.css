@@ -5,3 +5,16 @@
     width: 600px;
     margin: 51px 0 0 56px;
 }
+
+@media only screen and (max-width : 1160px) {
+    .comment{
+        margin: 0 0 0 32px;
+    }
+}
+
+@media only screen and (max-width : 590px) {
+    .comment{
+        margin: 0;
+        width: 100%;
+    }
+}

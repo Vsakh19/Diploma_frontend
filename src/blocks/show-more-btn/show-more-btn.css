@@ -1,4 +1,5 @@
 .show-more-btn{
+    outline: none;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -6,7 +7,7 @@
     line-height: 24px;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     color: #1A1B22;
     background: #FFFFFF;
     border-radius: 80px;
@@ -14,4 +15,14 @@
     border: none;
     margin: auto;
     cursor: pointer;
+}
+
+.show-more-btn:hover{
+    opacity: 0.9;
+}
+
+@media only screen and (max-width : 352px) {
+    .show-more-btn{
+        width: 288px;
+    }
 }

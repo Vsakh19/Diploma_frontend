@@ -6,3 +6,17 @@
     line-height: 46px;
     color: #1A1B22;
 }
+
+@media only screen and (max-width : 1160px) {
+    .comment__heading{
+        margin: 0 0 0 0px;
+    }
+}
+
+@media only screen and (max-width : 1160px) {
+    .comment__heading{
+        margin: 0 0 0 0px;
+        font-size: 30px;
+        line-height: 40px;
+    }
+}

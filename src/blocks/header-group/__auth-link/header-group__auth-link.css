@@ -1,4 +1,5 @@
 @import url('./_theme/header-group__auth-link_theme_black.css');
+@import url('./_mobile/header-group__auth-link_mobile.css');
 
 .header-group__auth-link{
     text-decoration: none;

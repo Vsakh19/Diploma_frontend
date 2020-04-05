@@ -1,6 +1,26 @@
 @import url('./__link/link-block__link.css');
 @import url('./__img/link-block__img.css');
+@import url('./_mobile/link-block_mobile.css');
 
 .link-block{
     margin: 32px 106px 26px 0;
+    display: flex;
+}
+
+@media only screen and (max-width : 1024px) {
+    .link-block{
+        margin: 21px 40px 21px 0;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .link-block{
+        margin: 21px 0 21px 0;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block{
+        display: none;
+    }
 }

@@ -1,3 +1,5 @@
+@import url('./_disabled/popup__reg_disabled.css');
+
 .popup__reg{
     width: 430px;
     min-height: 380px;
@@ -7,5 +9,13 @@
     z-index: 1;
     position: relative;
     opacity: 1;
+}
 
+@media only screen and (max-width : 560px) {
+    .popup__reg{
+        width: 100%;
+        position: absolute;
+        top: 56px;
+        height: 100%;
+    }
 }

@@ -7,3 +7,11 @@
     color: #FFFFFF;
     margin: 0 0 32px 0;
 }
+
+@media only screen and (max-width : 560px) {
+    .header-content__heading{
+        font-size: 36px;
+        line-height: 40px;
+        margin: 0 0 16px 0;
+    }
+}

@@ -8,3 +8,23 @@
     background: transparent;
     padding: 0 104px 0 104px;
 }
+
+@media only screen and (max-width : 1024px) {
+    .header-menu_theme_black{
+        padding: 0 40px;
+    }
+}
+
+
+@media only screen and (max-width : 768px) {
+    .header-menu_theme_black{
+        padding: 0 40px 0 40px;
+        min-height: 66px;
+    }
+}
+
+@media only screen and (max-width : 560px) {
+    .header-menu_theme_black{
+        display: none;
+    }
+}

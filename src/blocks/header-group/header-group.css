@@ -1,6 +1,8 @@
 @import url('./__link/header-group__link.css');
 @import url('./__auth-link/header-group__auth-link.css');
 @import url('./__logout-pic/header-group__logout-pic.css');
+@import url('./_mobile/header-group_mobile.css');
+@import url('./_white/header-group_mobile_white.css');
 
 .header-group{
     margin: 2px 0 0 0;

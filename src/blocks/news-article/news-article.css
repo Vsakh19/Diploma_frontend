@@ -7,6 +7,7 @@
 @import url('./__media/news-article__media.css');
 @import url('./__tag/news-article__tag.css');
 @import url('./__remove/news-article__remove.css');
+@import url('./__trash/news-article__trash.css');
 
 .news-article{
     width: 400px;
@@ -14,4 +15,27 @@
     background: #FFFFFF;
     border-radius: 16px;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media only screen and (max-width : 1440px) {
+    .news-article{
+        width: 300px;
+        height: 460px;
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    .news-article{
+        width: 224px;
+        height: 420px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-article{
+        width: 288px;
+        height: 440px;
+    }
 }

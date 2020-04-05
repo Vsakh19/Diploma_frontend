@@ -13,4 +13,12 @@
     top: 24px;
     right: 69px;
     cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width : 1024px) {
+    .news-article__remove{
+        top: 8px;
+        right: 53px;
+    }
 }

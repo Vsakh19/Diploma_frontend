@@ -1,5 +1,6 @@
 @import url('./__heading/header-menu__heading.css');
 @import url('./_theme/header-menu_theme_black.css');
+@import url('./_mobile/header-menu_mobile.css');
 
 .header-menu{
     min-height: 80px;
@@ -10,4 +11,17 @@
     align-items: center;
     background: transparent;
     padding: 0 104px 0 104px;
+}
+
+@media only screen and (max-width : 1024px) {
+    .header-menu{
+        padding: 0 40px;
+    }
+}
+
+
+@media only screen and (max-width : 560px) {
+    .header-menu{
+        display: none;
+    }
 }

@@ -1,0 +1,14 @@
+@import url('./__container/link-block_mobile__container.css');
+
+.link-block_mobile{
+    display: none;
+    width: calc(100% - 32px);
+    justify-content: space-between;
+    margin: 0 16px;
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block_mobile{
+        display: flex;
+    }
+}
