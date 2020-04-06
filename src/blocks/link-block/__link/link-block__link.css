@@ -17,8 +17,8 @@
 }
 
 @media only screen and (max-width : 400px) {
-    .link-block__link{
-        line-height: 48px;
+    .link-block__link:first-of-type{
+        margin-bottom: 30px;
     }
 }
 

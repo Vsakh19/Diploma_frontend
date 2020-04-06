@@ -1,12 +1,16 @@
-@media only screen and (max-width : 560px) {
+.header-menu_mobile_white {
+    min-height: 25px;
+    box-shadow: inset 0px -1px 0px #D1D2D6;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    display: none;
+    background: #fff;
+}
+
+@media only screen and (max-width : 701px) {
     .header-menu_mobile_white {
-        min-height: 25px;
-        box-shadow: inset 0px -1px 0px #D1D2D6;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
         display: flex;
-        background: #fff;
     }
 }

@@ -11,7 +11,7 @@
     width: 100%;
 }
 
-@media only screen and (max-width : 560px) {
+@media only screen and (max-width : 701px) {
     .header-group_mobile_white{
         display: flex;
     }

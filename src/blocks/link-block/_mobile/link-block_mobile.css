@@ -5,6 +5,7 @@
     width: calc(100% - 32px);
     justify-content: space-between;
     margin: 0 16px;
+    padding-top: 22px;
 }
 
 @media only screen and (max-width : 400px) {
