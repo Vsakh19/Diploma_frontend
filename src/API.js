@@ -37,6 +37,16 @@ export class API {
         })
     }
 
+    getCards(){
+        return fetch('https://getnewsbyword.tk/articles', {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+            }
+        })
+    }
+
     saveCard(){
         return fetch('https://getnewsbyword.tk/articles', {
             method: "POST",

@@ -64,6 +64,30 @@ export class Card {
                     <h3 class="news-article__heading">${this.title}</h3>
                     <p class="news-article__text">${cutDescr}</p>
                     <p class="news-article__media">${this.source}</p>`;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', ()=>{
+            window.location.href = this.link;
+        });
+        return card;
+    }
+
+    createSavedCard(){
+        const card = document.createElement("div");
+        card.classList.add('news-article');
+        const dictionary = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+        const dateFormat = `${new Date(this.data.date).getDate()} ` + `${dictionary[new Date(this.data.date).getMonth()]}, ` + `${new Date(this.data.date).getFullYear()}`;
+        const cutDescr = this.data.text.slice(0, 100) + '...';
+        card.innerHTML = `<div class="news-article__background" style="background-image: url(${this.data.image})"></div>
+                    <div class="news-article__save"></div>
+                    <div class="news-article__tag">${this.keyword}</div>
+                    <p class="news-article__date">${dateFormat}</p>
+                    <h3 class="news-article__heading">${this.title}</h3>
+                    <p class="news-article__text">${cutDescr}</p>
+                    <p class="news-article__media">${this.source}</p>`;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', ()=>{
+            window.location.href = this.link;
+        });
         return card;
     }
 }
