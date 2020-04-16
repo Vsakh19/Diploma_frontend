@@ -7,6 +7,8 @@
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #B6BCBF;
+    position: absolute;
+    bottom: 0;
     padding-top: 24px;
     margin: 0 0 24px 24px;
 }

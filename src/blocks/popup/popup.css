@@ -11,6 +11,8 @@
 @import url('./__registered/popup_registered.css');
 @import url('./__login/popup__login.css');
 @import url('./__label-registered/popup__label-registered.css');
+@import url('./__error/popup__error.css');
+@import url('./__error-exists/popup__error-exists.css');
 
 
 

@@ -19,10 +19,6 @@
     background-image: url("../../../images/Rectangle_hover.png");
 }
 
-.news-article__save:active{
-    background-image: url("../../../images/Rectangle_active.png");
-}
-
 
 @media only screen and (max-width : 1024px) {
     .news-article__save{

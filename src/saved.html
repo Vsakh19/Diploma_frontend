@@ -11,26 +11,26 @@
 <header>
     <div class="header-menu_mobile_white">
         <p class="header-menu__heading_theme_black">NewsExplorer</p>
-        <div class="header-menu_mobile__button_black"></div>
+        <div class="header-menu_mobile__button_black headerOpen"></div>
     </div>
     <div class="menu-shadow">
         <div class="header-menu_mobile_white">
             <p class="header-menu__heading_theme_black">NewsExplorer</p>
-            <div class="header-menu_mobile__close-button_black"></div>
+            <div class="header-menu_mobile__close-button_black headerClose"></div>
         </div>
         <ul class="header-group_mobile_white">
             <li class="header-group__auth-li"><a href="/" class="header-group__link_mobile_black">Главная</a></li>
-            <li class="header-group__auth-li"><a href="saved.html" class="header-group__link_mobile_black">Сохранённые статьи</a></li>
-            <li class="header-group__auth-li"><a href="#" class="header-group__auth-link_mobile_black">Авторизоваться</a></li>
-            <li class="header-group__auth-li"><a href="#" class="header-group__auth-link_mobile_black">Грета <img class="header-group__logout-pic" alt="logout" src="./images/logout.png"></a></li>
+            <li class="header-group__auth-li"><a href="saved.html" class="header-group__link_mobile_black saved">Сохранённые статьи</a></li>
+            <li class="header-group__auth-li"><a class="header-group__auth-link_mobile_black">Авторизоваться</a></li>
+            <li class="header-group__auth-li"><a class="header-group__auth-link_mobile_black signoutBtn">Грета <img class="header-group__logout-pic" alt="logout" src="<%=require('./images/logout_black.png')%>"></a></li>
         </ul>
     </div>
 <div class="header-menu_theme_black">
     <p class="header-menu__heading_theme_black">NewsExplorer</p>
     <ul class="header-group">
         <li><a href="/" class="header-group__link_type_home_theme_black">Главная</a></li>
-        <li><a href="saved.html" class="header-group__link_active_theme_black">Сохранённые статьи</a></li>
-        <li><a href="#" class="header-group__auth-link_theme_black">Грета <img class="header-group__logout-pic" alt="logout" src="./images/logout_black.png"></a></li>
+        <li><a href="saved.html" class="header-group__link_active_theme_black saved">Сохранённые статьи</a></li>
+        <li><a class="header-group__auth-link_theme_black signoutBtn">Грета <img class="header-group__logout-pic" alt="logout" src="<%=require('./images/logout_black.png')%>"></a></li>
     </ul>
 </div>
     <div class="header-saved-content">
@@ -92,16 +92,17 @@
             <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
         </div>
         <div class="link-block_mobile__img-container">
-            <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="images/Git.png"></a>
-            <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="images/Facebook.png"></a>
+            <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="<%=require('./images/Git.png')%>"></a>
+            <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="<%=require('./images/Facebook.png')%>"></a>
         </div>
     </div>
     <div class="link-block">
         <a href="/" class="link-block__link">Главная</a>
         <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
-        <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="images/Git.png"></a>
-        <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="images/Facebook.png"></a>
+        <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="<%=require('./images/Git.png')%>"></a>
+        <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="<%=require('./images/Facebook.png')%>"></a>
     </div>
 </footer>
+<script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>
