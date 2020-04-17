@@ -47,7 +47,8 @@ export class API {
         })
     }
 
-    saveCard(){
+    saveCard(keyword){
+        console.log(this.data.source);
         return fetch('https://getnewsbyword.tk/articles', {
             method: "POST",
             headers: {
@@ -55,7 +56,7 @@ export class API {
                 'Authorization': 'Bearer '+ localStorage.getItem('token')
             },
             body: JSON.stringify({
-                keyword: `${this.data.keyword}`,
+                keyword: `${keyword}`,
                 title: `${this.data.title}`,
                 text: `${this.data.description}`,
                 date: `${this.data.publishedAt}`,
@@ -66,9 +67,19 @@ export class API {
         })
     }
 
-    deleteCard(){
-        return fetch(`https://getnewsbyword.tk/articles/${this.data.id}`, {
+    deleteCard(id){
+        return fetch(`https://getnewsbyword.tk/articles/${id}`, {
             method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+ localStorage.getItem('token')
+            }
+        })
+    }
+
+    getMe(){
+        return fetch(`https://getnewsbyword.tk/users/me`, {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer '+ localStorage.getItem('token')

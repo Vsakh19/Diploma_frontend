@@ -4,7 +4,6 @@ import {MenuPopup} from "./MenuPopup";
 import {API} from './API';
 import {SuccessPopup} from './SuccessPopup';
 import {Search} from './Search';
-import './SearchPage.js';
 import './SavedPage.js';
 
 const regButton = document.querySelectorAll('.authBtn');
@@ -18,6 +17,10 @@ if(window.location.href.split('/').slice(-1)[0] !== 'saved.html'){
     const sinForm = new Popup(document.querySelector('.signin'));
     const searchField = new Search(document.querySelector('.search-form'));
     const successedReg = new SuccessPopup(document.querySelector('.popup_registered'));
+
+
+
+
     for(let i = 0; i<regButton.length; i+=1){
         regButton[i].addEventListener('click', ()=>{
             mobileMenu.hide();
@@ -38,11 +41,23 @@ if(window.location.href.split('/').slice(-1)[0] !== 'saved.html'){
         event.preventDefault();
         const data = new API([supForm.form.email.value, supForm.form.password.value, supForm.form.name.value]);
         data.sendSup()
-            .then(()=>{
-                supForm.hide();
-                successedReg.show();
-                supForm.shadow.style.display = 'flex';
-                localStorage.setItem('user', supForm.form.name.value);
+            .then((res)=>{
+                return res.json()
+            })
+            .then((res)=>{
+                if(res.message === 'Произошла ошибка'){
+                    Promise.reject('Такой пользователь уже существует.')
+                        .catch((err)=>{
+                            supForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                            supForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                        })
+                }
+                else {
+                    supForm.hide();
+                    successedReg.show();
+                    supForm.shadow.style.display = 'flex';
+                    localStorage.setItem('user', supForm.form.name.value);
+                }
             })
             .catch((err)=>{
                 supForm.form.querySelector('.popup__error-exists').style.display = 'block';
@@ -52,24 +67,29 @@ if(window.location.href.split('/').slice(-1)[0] !== 'saved.html'){
 
     sinForm.submit.addEventListener('click', (event)=>{
         event.preventDefault();
-        const data = new API([supForm.form.email.value, supForm.form.password.value]);
+        const data = new API([sinForm.form.email.value, sinForm.form.password.value]);
         data.sendSin()
             .then((res)=>{
-                return res.json
+                return res.json()
             })
             .then((data)=>{
                 localStorage.setItem('token', data.token);
+                localStorage.setItem('user', data.data.name);
+                sinForm.hide();
                 for(let i = 0; i < soutButton.length; i+=1) {
                     soutButton[i].style.display = 'block';
+                    soutButton[i].innerHTML = data.data.name + soutButton[i].innerHTML;
                 }
                 for(let i = 0; i < savedButton.length; i+=1) {
                     savedButton[i].style.display = 'block';
                 }
-                regButton.style.display = 'none';
+                for(let i = 0; i<regButton.length; i+=1) {
+                    regButton[i].style.display = 'none';
+                }
             })
             .catch((err)=>{
-                supForm.form.querySelector('.popup__error-exists').style.display = 'block';
-                supForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                sinForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                sinForm.form.querySelector('.popup__error-exists').innerHTML = err;
             })
     });
 
@@ -87,16 +107,46 @@ if (!localStorage.getItem('token')) {
     }
 }
 else {
-    for (let i = 0; i < soutButton.length; i += 1) {
-        soutButton[i].style.display = 'block';
-        soutButton[i].innerHTML = localStorage.getItem('user') + soutButton[i].innerHTML;
-    }
-    for (let i = 0; i < savedButton.length; i += 1) {
-        savedButton[i].style.display = 'block';
-    }
-    for (let i = 0; i < regButton.length; i += 1) {
-        regButton[i].style.display = 'none';
-    }
+    new API().getMe()
+        .then(res=>{
+            return res.json()
+        })
+        .then((res)=>{
+            if (res.message){
+                for (let i = 0; i < soutButton.length; i += 1) {
+                    soutButton[i].style.display = 'none';
+                }
+                for (let i = 0; i < savedButton.length; i += 1) {
+                    savedButton[i].style.display = 'none';
+                }
+                for (let i = 0; i < regButton.length; i += 1) {
+                    regButton[i].style.display = 'block';
+                }
+            }
+            else {
+                for (let i = 0; i < soutButton.length; i += 1) {
+                    soutButton[i].style.display = 'block';
+                    soutButton[i].innerHTML = localStorage.getItem('user') + soutButton[i].innerHTML;
+                }
+                for (let i = 0; i < savedButton.length; i += 1) {
+                    savedButton[i].style.display = 'block';
+                }
+                for (let i = 0; i < regButton.length; i += 1) {
+                    regButton[i].style.display = 'none';
+                }
+            }
+        })
+        .catch(err=>{
+            for (let i = 0; i < soutButton.length; i += 1) {
+                soutButton[i].style.display = 'none';
+            }
+            for (let i = 0; i < savedButton.length; i += 1) {
+                savedButton[i].style.display = 'none';
+            }
+            for (let i = 0; i < regButton.length; i += 1) {
+                regButton[i].style.display = 'block';
+            }
+        })
 }
 
 

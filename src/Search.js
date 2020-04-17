@@ -1,8 +1,12 @@
+import {CardField} from "./CardField";
+import {Card} from "./Card";
+
 export class Search {
     constructor(form) {
         this.field = form.searchField;
         this.error = form.querySelector('.search-error');
         this.submit = form.submit;
+        this.cardArea = new CardField(document.querySelector('.news-grid'));
         this.applyEvents();
     }
     validate(){
@@ -39,25 +43,65 @@ export class Search {
         return fetch(new Request(url));
     }
 
+    showResult(news, keyword){
+        const data = JSON.parse(news);
+        let counter = 0;
+        if (data.totalResults !== 0){
+            if(data.articles.length>=3) {
+                for (let i = 0; i < 3; i += 1) {
+                    const createdCard = new Card(data.articles[i], keyword).card;
+                    this.cardArea.addCard(createdCard);
+                    counter += 1;
+                }
+            }
+        }
+
+        document.querySelector('.show-more-btn').addEventListener('click', ()=>{
+            const stopcounter = counter;
+            if(data.articles.length - stopcounter>=3) {
+                for (let i = stopcounter; i < stopcounter+3; i += 1) {
+                    const createdCard = new Card(data.articles[i], keyword).card;
+                    this.cardArea.addCard(createdCard);
+                    counter += 1;
+                }
+            }
+            else {
+                for (let i = stopcounter; i < data.articles.length; i += 1) {
+                    const createdCard = new Card(data.articles[i], keyword).card;
+                    this.cardArea.addCard(createdCard);
+                    counter += 1;
+                    document.querySelector('.show-more-btn').style.display = 'none';
+                }
+            }
+        })
+    }
+
     applyEvents(){
         this.field.addEventListener('input', ()=>{
             this.validate();
         });
 
         this.submit.addEventListener('click', (e)=>{
+            this.cardArea.field.innerHTML = '';
+            const preloader = document.createElement('i');
+            preloader.classList.add('circle-preloader');
             e.preventDefault();
+            document.querySelector('.search-result').style.display = 'block';
             if(this.validate()){
+                document.querySelector('.search-result').appendChild(preloader);
+                document.querySelector('.show-more-btn').style.display = 'none';
                 this.getNews(this.field.value)
                     .then(res=>{
                         return res.json();
                     })
                     .then(res=>{
-                        sessionStorage.setItem('news', JSON.stringify(res));
-                        sessionStorage.setItem('keyword', this.field.value);
-                        window.location.href = '/search.html';
+                        this.showResult(JSON.stringify(res), this.field.value);
+                        document.querySelector('.show-more-btn').style.display = 'flex';
+                        document.querySelector('.search-result').removeChild(preloader);
                     })
                     .catch(()=>{
                         document.querySelector('.search-result__heading').value = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+                        document.querySelector('.search-result').removeChild(preloader);
                     })
             }
         });

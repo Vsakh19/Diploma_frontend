@@ -1,4 +1,5 @@
 import {API} from './API.js';
+import savedPic from './images/Rectangle_active.png';
 
 export class Card {
     constructor(data, keyword) {
@@ -26,11 +27,16 @@ export class Card {
         }
         else {
             this.card.querySelector('.news-article__save').addEventListener('click', ()=>{
-                if(this.card.querySelector('.news-article__save').style.backgroundImage !== 'url("../../../images/Rectangle_active.png")') {
-                    new API(this.data).saveCard()
+                if(this.card.querySelector('.news-article__save').style.backgroundImage !== `url("${savedPic}")`) {
+                    this.data.source = this.data.source.name;
+                    new API(this.data).saveCard(this.keyword)
+                        .then(res=>{
+                            return res.json()
+                        })
                         .then((resp)=>{
-                            this.card.querySelector('.news-article__save').style.backgroundImage = 'url("../../../images/Rectangle_active.png")';
+                            this.card.querySelector('.news-article__save').style.backgroundImage = `url("${savedPic}")`;
                             this.id = resp.id;
+                            console.log(resp);
                         })
                         .catch((err)=>{
                             this.card.querySelector('.news-article__remove').innerHTML = err;
@@ -38,9 +44,10 @@ export class Card {
                         })
                 }
                 else {
-                    new API(this.data).deleteCard()
+
+                    new API(this.data).deleteCard(this.id)
                         .then(()=>{
-                            this.card.querySelector('.news-article__save').style.backgroundImage = 'url("../../../images/Rectangle 8.png")';
+                            this.card.querySelector('.news-article__save').style.backgroundImage = 'url("./images/Rectangle 8.png")';
                         })
                         .catch((err)=>{
                             this.card.querySelector('.news-article__remove').value = err;
@@ -64,30 +71,16 @@ export class Card {
                     <h3 class="news-article__heading">${this.title}</h3>
                     <p class="news-article__text">${cutDescr}</p>
                     <p class="news-article__media">${this.source}</p>`;
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', ()=>{
+        card.querySelector('.news-article__heading').style.cursor = 'pointer';
+        card.querySelector('.news-article__background').style.cursor = 'pointer';
+        card.querySelector('.news-article__heading').addEventListener('click', ()=>{
+            window.location.href = this.link;
+        });
+        card.querySelector('.news-article__background').addEventListener('click', ()=>{
             window.location.href = this.link;
         });
         return card;
     }
 
-    createSavedCard(){
-        const card = document.createElement("div");
-        card.classList.add('news-article');
-        const dictionary = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-        const dateFormat = `${new Date(this.data.date).getDate()} ` + `${dictionary[new Date(this.data.date).getMonth()]}, ` + `${new Date(this.data.date).getFullYear()}`;
-        const cutDescr = this.data.text.slice(0, 100) + '...';
-        card.innerHTML = `<div class="news-article__background" style="background-image: url(${this.data.image})"></div>
-                    <div class="news-article__save"></div>
-                    <div class="news-article__tag">${this.keyword}</div>
-                    <p class="news-article__date">${dateFormat}</p>
-                    <h3 class="news-article__heading">${this.title}</h3>
-                    <p class="news-article__text">${cutDescr}</p>
-                    <p class="news-article__media">${this.source}</p>`;
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', ()=>{
-            window.location.href = this.link;
-        });
-        return card;
-    }
+
 }

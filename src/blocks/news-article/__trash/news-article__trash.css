@@ -19,6 +19,16 @@
     background-image: url("../../../images/trash.png");
 }
 
+.news-article__trash:hover + .news-article__remove{
+    display: block;
+}
+
+@media only screen and (max-width : 1440px) {
+    .news-article__trash:hover + .news-article__remove{
+        display: none;
+    }
+}
+
 
 @media only screen and (max-width : 1024px) {
     .news-article__trash{

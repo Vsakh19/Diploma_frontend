@@ -1,3 +1,4 @@
+/*
 import {Card} from './Card.js';
 import {CardField} from './CardField.js';
 
@@ -39,3 +40,4 @@ if(window.location.href.split('/').slice(-1)[0] === 'search.html'){
 
 
 }
+*/

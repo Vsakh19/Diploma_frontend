@@ -47,6 +47,13 @@
                 </div>
             </div>
         </header>
+        <section class="search-result">
+            <h2 class="search-result__heading">Результаты поиска</h2>
+            <div class="news-grid">
+
+            </div>
+            <button class="show-more-btn">Показать еще</button>
+        </section>
         <section class="about">
             <img class="author-pic" alt="author picture" src="<%=require('./images/image-03.png')%>">
             <div class="comment">
@@ -81,6 +88,7 @@
                         <label class="popup__input-title" for="password">Пароль</label>
                         <input name="password" id="password" type="password" class="popup__input" placeholder="Введите пароль">
                         <button name="submitBtn" class="popup__submit">Войти</button>
+                        <p class="popup__error-exists"></p>
                         <p class="popup__undernote">или <a href="#" class="popup__underlink">Зарегистрироваться</a></p>
                     </form>
                 </div>
