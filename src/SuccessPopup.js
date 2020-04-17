@@ -14,6 +14,7 @@ export class SuccessPopup {
     }
 
     hide(){
+        this.elem.style.display = 'none';
         this.shadow.style.display = 'none';
     }
 
