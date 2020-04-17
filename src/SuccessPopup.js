@@ -3,6 +3,7 @@ export class SuccessPopup {
         this.elem = elem;
         this.shadow = document.querySelector('.popup__shadow');
         this.close = elem.querySelector('.popup__close');
+        this.enter = elem.querySelector('.popup__login');
         this.applyEvents();
     }
 

@@ -27,6 +27,11 @@ if(window.location.href.split('/').slice(-1)[0] !== 'saved.html'){
             supForm.show();
         });
     }
+
+    successedReg.enter.addEventListener('click', () => {
+        successedReg.hide();
+        sinForm.show();
+    });
     supForm.swap.addEventListener('click', ()=>{
         supForm.hide();
         sinForm.show();
