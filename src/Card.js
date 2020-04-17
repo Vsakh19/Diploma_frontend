@@ -1,4 +1,4 @@
-import {API} from './API.js';
+import {ServerAPI} from './ServerAPI.js';
 import savedPic from './images/Rectangle_active.png';
 
 export class Card {
@@ -12,11 +12,11 @@ export class Card {
         this.urlToImage = data.urlToImage;
         this.link = data.url;
         this.card = this.createCard();
-        this.applyEvents();
+        this._applyEvents();
         this.id = undefined;
     }
 
-    applyEvents(){
+    _applyEvents(){
         if (!localStorage.getItem('token')) {
             this.card.querySelector('.news-article__save').addEventListener('mouseover', () => {
                 this.card.querySelector('.news-article__remove').style.display = 'block';
@@ -29,9 +29,16 @@ export class Card {
             this.card.querySelector('.news-article__save').addEventListener('click', ()=>{
                 if(this.card.querySelector('.news-article__save').style.backgroundImage !== `url("${savedPic}")`) {
                     this.data.source = this.data.source.name;
-                    new API(this.data).saveCard(this.keyword)
+                    new ServerAPI(this.data).saveCard(this.keyword)
                         .then(res=>{
-                            return res.json()
+                            if (res.ok){
+                                return res.json()
+                            }
+                            else Promise.reject(res.statusText)
+                                .catch((err)=>{
+                                    this.card.querySelector('.news-article__remove').innerHTML = err;
+                                    this.card.querySelector('.news-article__remove').style.display = 'block';
+                                })
                         })
                         .then((resp)=>{
                             this.card.querySelector('.news-article__save').style.backgroundImage = `url("${savedPic}")`;
@@ -45,9 +52,16 @@ export class Card {
                 }
                 else {
 
-                    new API(this.data).deleteCard(this.id)
-                        .then(()=>{
-                            this.card.querySelector('.news-article__save').style.backgroundImage = 'url("./images/Rectangle 8.png")';
+                    new ServerAPI(this.data).deleteCard(this.id)
+                        .then((res)=>{
+                            if (res.ok){
+                                this.card.querySelector('.news-article__save').style.backgroundImage = 'url("./images/Rectangle 8.png")';
+                            }
+                            else Promise.reject(res.statusText)
+                            .catch((err)=>{
+                                this.card.querySelector('.news-article__remove').value = err;
+                                this.card.querySelector('.news-article__remove').style.display = 'block';
+                            })
                         })
                         .catch((err)=>{
                             this.card.querySelector('.news-article__remove').value = err;

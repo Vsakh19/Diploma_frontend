@@ -6,7 +6,7 @@ export class Popup {
         this.close = elem.querySelector('.popup__close');
         this.swap = elem.querySelector('.popup__underlink');
         this.submit = this.form.submitBtn;
-        this.applyEvents();
+        this._applyEvents();
 }
 
     show() {
@@ -23,7 +23,7 @@ export class Popup {
         document.querySelector('.header-menu__heading').style.zIndex = '0';
     }
 
-    validate(field, email){
+    _validate(field, email){
         if(email === true){
             return /^\w+(([-\.])\w+)*@\w{2,}(\.\w{2,})+$/.test(field);
         }
@@ -32,12 +32,12 @@ export class Popup {
         }
     }
 
-    applyEvents(){
+    _applyEvents(){
         this.close.addEventListener('click', ()=>{
             this.hide();
         });
         this.form.email.addEventListener('input', (event)=>{
-            if (!this.validate(this.form.email.value, true)) {
+            if (!this._validate(this.form.email.value, true)) {
                 document.querySelector('.popup__error').style.display = 'block';
                 this.submit.setAttribute("disabled", "");
             }
@@ -47,7 +47,7 @@ export class Popup {
             }
         });
         this.form.password.addEventListener('input', ()=>{
-            this.validate(this.form.password.value, false);
+            this._validate(this.form.password.value, false);
         });
 
     }

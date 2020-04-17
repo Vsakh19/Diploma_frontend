@@ -3,7 +3,7 @@ export class MenuPopup {
         this.elem = elem;
         this.shadow = document.querySelector('.menu-shadow');
         this.close = document.querySelector('.headerClose');
-        this.applyEvents();
+        this._applyEvents();
     }
 
     show() {
@@ -14,7 +14,7 @@ export class MenuPopup {
         this.shadow.style.display = 'none';
     }
 
-    applyEvents(){
+    _applyEvents(){
         this.close.addEventListener('click', ()=>{
             this.hide();
         });

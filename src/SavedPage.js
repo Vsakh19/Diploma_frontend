@@ -1,11 +1,11 @@
-import {API} from "./API";
+import {ServerAPI} from "./ServerAPI";
 import {CardField} from "./CardField";
 import {SavedCard} from "./SavedCard";
 
 function findFrequent(arr){
-    let sortedArr = arr.sort();
-    const reduced = sortedArr.filter(function (val, index, mas){
-        return mas.indexOf(val) === index;
+    const sortedArr = arr.sort();
+    const reduced = sortedArr.filter(function (val, index, arr){
+        return arr.indexOf(val) === index;
     });
     let first = ['', 0];
     let second = ['', 0];
@@ -43,9 +43,17 @@ if(window.location.href.split('/').slice(-1)[0] === 'saved.html'){
     }
     const cardArea = new CardField(document.querySelector('.news-grid'));
     const heading = document.querySelector('.header-saved-content__heading');
-    new API('').getCards()
+    new ServerAPI('').getCards()
         .then(res=>{
-            return res.json()
+            if (res.ok){
+                return res.json()
+            }
+            else Promise.reject(res.statusText)
+            .catch(err=>{
+                console.log(err);
+                heading.innerHTML = 'При загрузке статей произошла ошибка.';
+                document.querySelector('.saved-field').style.display = 'none';
+            })
         })
         .then(savedCards=>{
             const keysArray = [];

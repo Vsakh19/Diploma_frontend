@@ -1,9 +1,9 @@
-export class API {
+export class ServerAPI {
     constructor(data) {
         this.data = data;
     }
 
-    sendSup(){
+    SignUp(){
         const email = this.data[0];
         const password = this.data[1];
         const name = this.data[2];
@@ -21,7 +21,7 @@ export class API {
         })
     }
 
-    sendSin(){
+    SignIn(){
         const email = this.data[0];
         const password = this.data[1];
 

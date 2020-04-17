@@ -4,10 +4,10 @@ export class SuccessPopup {
         this.shadow = document.querySelector('.popup__shadow');
         this.close = elem.querySelector('.popup__close');
         this.enter = elem.querySelector('.popup__login');
-        this.applyEvents();
+        this._applyEvents();
     }
 
-    applyEvents() {
+    _applyEvents() {
         this.close.addEventListener('click', () => {
             this.hide();
         });

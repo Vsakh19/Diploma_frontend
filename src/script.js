@@ -1,163 +1,193 @@
 import './pages/index.css';
 import {Popup} from './Popup.js';
 import {MenuPopup} from "./MenuPopup";
-import {API} from './API';
+import {ServerAPI} from './ServerAPI';
 import {SuccessPopup} from './SuccessPopup';
 import {Search} from './Search';
+import {NewsAPI} from './NewsAPI'
 import './SavedPage.js';
 
-const regButton = document.querySelectorAll('.authBtn');
-const soutButton = document.querySelectorAll('.signoutBtn');
+const regButtons = document.querySelectorAll('.authBtn');
+const soutButtons = document.querySelectorAll('.signoutBtn');
 const mobileOpen = document.querySelector('.headerOpen');
-const savedButton = document.querySelectorAll('.saved');
+const savedButtons = document.querySelectorAll('.saved');
 const mobileMenu = new MenuPopup(document.querySelector('.header-group_mobile'));
 
 if(window.location.href.split('/').slice(-1)[0] !== 'saved.html'){
-    const supForm = new Popup(document.querySelector('.signup'));
-    const sinForm = new Popup(document.querySelector('.signin'));
+    const SignUpForm = new Popup(document.querySelector('.signup'));
+    const SignInForm = new Popup(document.querySelector('.signin'));
     const searchField = new Search(document.querySelector('.search-form'));
     const successedReg = new SuccessPopup(document.querySelector('.popup_registered'));
 
 
 
 
-    for(let i = 0; i<regButton.length; i+=1){
-        regButton[i].addEventListener('click', ()=>{
+    for(let i = 0; i<regButtons.length; i+=1){
+        regButtons[i].addEventListener('click', ()=>{
             mobileMenu.hide();
-            supForm.show();
+            SignUpForm.show();
         });
     }
 
     successedReg.enter.addEventListener('click', () => {
         successedReg.hide();
-        sinForm.show();
+        SignInForm.show();
     });
-    supForm.swap.addEventListener('click', ()=>{
-        supForm.hide();
-        sinForm.show();
-    });
-
-    sinForm.swap.addEventListener('click', ()=>{
-        sinForm.hide();
-        supForm.show();
+    SignUpForm.swap.addEventListener('click', ()=>{
+        SignUpForm.hide();
+        SignInForm.show();
     });
 
-    supForm.submit.addEventListener('click', (event)=>{
+    SignInForm.swap.addEventListener('click', ()=>{
+        SignInForm.hide();
+        SignUpForm.show();
+    });
+
+    SignUpForm.submit.addEventListener('click', (event)=>{
         event.preventDefault();
-        const data = new API([supForm.form.email.value, supForm.form.password.value, supForm.form.name.value]);
-        data.sendSup()
+        const data = new ServerAPI([SignUpForm.form.email.value, SignUpForm.form.password.value, SignUpForm.form.name.value]);
+        data.SignUp()
             .then((res)=>{
-                return res.json()
+                if (res.ok){
+                    return res.json()
+                }
+                else Promise.reject(res.statusText)
+                .catch((err)=>{
+                    SignUpForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                    SignUpForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                })
             })
             .then((res)=>{
                 if(res.message === 'Произошла ошибка'){
                     Promise.reject('Такой пользователь уже существует.')
                         .catch((err)=>{
-                            supForm.form.querySelector('.popup__error-exists').style.display = 'block';
-                            supForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                            SignUpForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                            SignUpForm.form.querySelector('.popup__error-exists').innerHTML = err;
                         })
                 }
                 else {
-                    supForm.hide();
+                    SignUpForm.hide();
                     successedReg.show();
-                    supForm.shadow.style.display = 'flex';
-                    localStorage.setItem('user', supForm.form.name.value);
+                    SignUpForm.shadow.style.display = 'flex';
+                    localStorage.setItem('user', SignUpForm.form.name.value);
                 }
             })
             .catch((err)=>{
-                supForm.form.querySelector('.popup__error-exists').style.display = 'block';
-                supForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                SignUpForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                SignUpForm.form.querySelector('.popup__error-exists').innerHTML = err;
             })
     });
 
-    sinForm.submit.addEventListener('click', (event)=>{
+    SignInForm.submit.addEventListener('click', (event)=>{
         event.preventDefault();
-        const data = new API([sinForm.form.email.value, sinForm.form.password.value]);
-        data.sendSin()
+        const data = new ServerAPI([SignInForm.form.email.value, SignInForm.form.password.value]);
+        data.SignIn()
             .then((res)=>{
-                return res.json()
+                if (res.ok){
+                    return res.json()
+                }
+                else Promise.reject(res.statusText)
+                .catch((err)=>{
+                    SignInForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                    SignInForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                })
+                
             })
             .then((data)=>{
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', data.data.name);
-                sinForm.hide();
-                for(let i = 0; i < soutButton.length; i+=1) {
-                    soutButton[i].style.display = 'block';
-                    soutButton[i].innerHTML = data.data.name + soutButton[i].innerHTML;
+                SignInForm.hide();
+                for(let i = 0; i < soutButtons.length; i+=1) {
+                    soutButtons[i].style.display = 'block';
+                    soutButtons[i].innerHTML = data.data.name + soutButtons[i].innerHTML;
                 }
-                for(let i = 0; i < savedButton.length; i+=1) {
-                    savedButton[i].style.display = 'block';
+                for(let i = 0; i < savedButtons.length; i+=1) {
+                    savedButtons[i].style.display = 'block';
                 }
-                for(let i = 0; i<regButton.length; i+=1) {
-                    regButton[i].style.display = 'none';
+                for(let i = 0; i<regButtons.length; i+=1) {
+                    regButtons[i].style.display = 'none';
                 }
             })
             .catch((err)=>{
-                sinForm.form.querySelector('.popup__error-exists').style.display = 'block';
-                sinForm.form.querySelector('.popup__error-exists').innerHTML = err;
+                SignInForm.form.querySelector('.popup__error-exists').style.display = 'block';
+                SignInForm.form.querySelector('.popup__error-exists').innerHTML = err;
             })
     });
 
 }
 
 if (!localStorage.getItem('token')) {
-    for (let i = 0; i < soutButton.length; i += 1) {
-        soutButton[i].style.display = 'none';
+    for (let i = 0; i < soutButtons.length; i += 1) {
+        soutButtons[i].style.display = 'none';
     }
-    for (let i = 0; i < savedButton.length; i += 1) {
-        savedButton[i].style.display = 'none';
+    for (let i = 0; i < savedButtons.length; i += 1) {
+        savedButtons[i].style.display = 'none';
     }
-    for (let i = 0; i < regButton.length; i += 1) {
-        regButton[i].style.display = 'block';
+    for (let i = 0; i < regButtons.length; i += 1) {
+        regButtons[i].style.display = 'block';
     }
 }
 else {
-    new API().getMe()
+    new ServerAPI().getMe()
         .then(res=>{
-            return res.json()
+            if (res.ok){
+                return res.json()
+            }
+            else Promise.reject(res.statusText)
+            .catch(err=>{
+                for (let i = 0; i < soutButtons.length; i += 1) {
+                    soutButtons[i].style.display = 'none';
+                }
+                for (let i = 0; i < savedButtons.length; i += 1) {
+                    savedButtons[i].style.display = 'none';
+                }
+                for (let i = 0; i < regButtons.length; i += 1) {
+                    regButtons[i].style.display = 'block';
+                }
+            })
         })
         .then((res)=>{
             if (res.message){
-                for (let i = 0; i < soutButton.length; i += 1) {
-                    soutButton[i].style.display = 'none';
+                for (let i = 0; i < soutButtons.length; i += 1) {
+                    soutButtons[i].style.display = 'none';
                 }
-                for (let i = 0; i < savedButton.length; i += 1) {
-                    savedButton[i].style.display = 'none';
+                for (let i = 0; i < savedButtons.length; i += 1) {
+                    savedButtons[i].style.display = 'none';
                 }
-                for (let i = 0; i < regButton.length; i += 1) {
-                    regButton[i].style.display = 'block';
+                for (let i = 0; i < regButtons.length; i += 1) {
+                    regButtons[i].style.display = 'block';
                 }
             }
             else {
-                for (let i = 0; i < soutButton.length; i += 1) {
-                    soutButton[i].style.display = 'block';
-                    soutButton[i].innerHTML = localStorage.getItem('user') + soutButton[i].innerHTML;
+                for (let i = 0; i < soutButtons.length; i += 1) {
+                    soutButtons[i].style.display = 'block';
+                    soutButtons[i].innerHTML = localStorage.getItem('user') + soutButtons[i].innerHTML;
                 }
-                for (let i = 0; i < savedButton.length; i += 1) {
-                    savedButton[i].style.display = 'block';
+                for (let i = 0; i < savedButtons.length; i += 1) {
+                    savedButtons[i].style.display = 'block';
                 }
-                for (let i = 0; i < regButton.length; i += 1) {
-                    regButton[i].style.display = 'none';
+                for (let i = 0; i < regButtons.length; i += 1) {
+                    regButtons[i].style.display = 'none';
                 }
             }
         })
         .catch(err=>{
-            for (let i = 0; i < soutButton.length; i += 1) {
-                soutButton[i].style.display = 'none';
+            for (let i = 0; i < soutButtons.length; i += 1) {
+                soutButtons[i].style.display = 'none';
             }
-            for (let i = 0; i < savedButton.length; i += 1) {
-                savedButton[i].style.display = 'none';
+            for (let i = 0; i < savedButtons.length; i += 1) {
+                savedButtons[i].style.display = 'none';
             }
-            for (let i = 0; i < regButton.length; i += 1) {
-                regButton[i].style.display = 'block';
+            for (let i = 0; i < regButtons.length; i += 1) {
+                regButtons[i].style.display = 'block';
             }
         })
 }
 
 
 
-for (let i = 0; i < soutButton.length; i += 1) {
-    soutButton[i].addEventListener('click', ()=>{
+for (let i = 0; i < soutButtons.length; i += 1) {
+    soutButtons[i].addEventListener('click', ()=>{
         localStorage.removeItem('token');
         window.location.href = '/';
     })

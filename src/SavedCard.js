@@ -1,4 +1,4 @@
-import {API} from "./API";
+import {ServerAPI} from "./ServerAPI";
 
 export class SavedCard {
     constructor(data, keyword) {
@@ -8,10 +8,10 @@ export class SavedCard {
         this.source = data.source;
         this.title = data.title;
         this.link = data.url;
-        this.card = this.createSavedCard();
+        this.card = this._createSavedCard();
     }
 
-    createSavedCard(){
+    _createSavedCard(){
         const card = document.createElement("div");
         card.classList.add('news-article');
         const dictionary = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
@@ -35,9 +35,15 @@ export class SavedCard {
 
         });
         card.querySelector('.news-article__trash').addEventListener('click', ()=>{
-            new API('').deleteCard(this.id)
+            new ServerAPI('').deleteCard(this.id)
                 .then(res=>{
-                    window.location.href = '/saved.html';
+                    if (res.ok){
+                        window.location.href = '/saved.html';
+                    }
+                    else Promise.reject(res.statusText)
+                    .catch(err=>{
+                        card.querySelector('.news-article__remove').innerHTML = err;
+                    })
                 })
                 .catch(err=>{
                     card.querySelector('.news-article__remove').innerHTML = err;

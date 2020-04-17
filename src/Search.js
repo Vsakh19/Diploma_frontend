@@ -1,5 +1,6 @@
 import {CardField} from "./CardField";
 import {Card} from "./Card";
+import {NewsAPI} from "./NewsAPI";
 
 export class Search {
     constructor(form) {
@@ -9,7 +10,7 @@ export class Search {
         this.cardArea = new CardField(document.querySelector('.news-grid'));
         this.applyEvents();
     }
-    validate(){
+    _validate(){
         if (this.field.value.length === 0){
             this.error.style.display = 'block';
             this.submit.setAttribute('disabled', '');
@@ -78,7 +79,7 @@ export class Search {
 
     applyEvents(){
         this.field.addEventListener('input', ()=>{
-            this.validate();
+            this._validate();
         });
 
         this.submit.addEventListener('click', (e)=>{
@@ -87,12 +88,20 @@ export class Search {
             preloader.classList.add('circle-preloader');
             e.preventDefault();
             document.querySelector('.search-result').style.display = 'block';
-            if(this.validate()){
+            if(this._validate()){
                 document.querySelector('.search-result').appendChild(preloader);
                 document.querySelector('.show-more-btn').style.display = 'none';
-                this.getNews(this.field.value)
+                new NewsAPI(this.field.value).getNews()
                     .then(res=>{
-                        return res.json();
+                        if (res.ok){
+                            return res.json()
+                        }
+                        else Promise.reject(res.statusText)
+                        .catch(()=>{
+                            console.log(res.json());
+                            document.querySelector('.search-result__heading').value = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+                            document.querySelector('.search-result').removeChild(preloader);
+                        })
                     })
                     .then(res=>{
                         this.showResult(JSON.stringify(res), this.field.value);
@@ -101,7 +110,6 @@ export class Search {
                     })
                     .catch(()=>{
                         document.querySelector('.search-result__heading').value = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-                        document.querySelector('.search-result').removeChild(preloader);
                     })
             }
         });
