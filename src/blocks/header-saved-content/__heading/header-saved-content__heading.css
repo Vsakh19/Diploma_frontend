@@ -20,6 +20,6 @@
 
 @media only screen and (max-width : 560px) {
     .header-saved-content__heading{
-        width: unset;
+        max-width: 80vw;
     }
 }
