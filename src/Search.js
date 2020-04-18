@@ -96,12 +96,7 @@ export class Search {
                         if (res.ok){
                             return res.json()
                         }
-                        else Promise.reject(res.statusText)
-                        .catch(()=>{
-                            console.log(res.json());
-                            document.querySelector('.search-result__heading').value = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
-                            document.querySelector('.search-result').removeChild(preloader);
-                        })
+                        else return Promise.reject(res.statusText)
                     })
                     .then(res=>{
                         this.showResult(JSON.stringify(res), this.field.value);

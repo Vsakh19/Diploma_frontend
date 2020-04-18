@@ -40,10 +40,7 @@ export class SavedCard {
                     if (res.ok){
                         window.location.href = '/saved.html';
                     }
-                    else Promise.reject(res.statusText)
-                    .catch(err=>{
-                        card.querySelector('.news-article__remove').innerHTML = err;
-                    })
+                    else return Promise.reject(res.statusText)
                 })
                 .catch(err=>{
                     card.querySelector('.news-article__remove').innerHTML = err;

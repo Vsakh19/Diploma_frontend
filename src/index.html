@@ -69,14 +69,14 @@
                         <h2 class="popup__label">Регистрация</h2>
                         <label for="email-reg" class="popup__input-title">Email</label>
                         <input required name="email" id="email-reg" pattern="^\w+(([-\.])\w+)*@\w{2,}(\.\w{2,})+$" type="text" class="popup__input" placeholder="Введите почту">
-                        <p class="popup__error">Неправильный формат email</p>
+                        <p class="popup__error">Неправильный формат email или пароля</p>
                         <label class="popup__input-title" for="password-reg">Пароль</label>
                         <input required name="password" id="password-reg" type="password" class="popup__input" placeholder="Введите пароль">
                         <label class="popup__input-title" for="name">Имя</label>
                         <input required name="name" id="name" type="text" class="popup__input" placeholder="Введите своё имя">
                         <p class="popup__error-exists"></p>
                         <button disabled name="submitBtn" class="popup__submit">Зарегистрироваться</button>
-                        <p class="popup__undernote">или <a href="#" class="popup__underlink">Войти</a></p>
+                        <p class="popup__undernote">или <a class="popup__underlink">Войти</a></p>
                     </form>
                 </div>
                 <div class="popup__reg signin popup__reg_disabled">
@@ -84,12 +84,13 @@
                     <form class="popup__regform">
                         <h2 class="popup__label">Вход</h2>
                         <label for="email" class="popup__input-title">Email</label>
+                        <p class="popup__error">Неправильный формат email или пароля</p>
                         <input name="email" id="email" type="text" class="popup__input" placeholder="Введите почту">
                         <label class="popup__input-title" for="password">Пароль</label>
                         <input name="password" id="password" type="password" class="popup__input" placeholder="Введите пароль">
                         <button disabled name="submitBtn" class="popup__submit">Войти</button>
                         <p class="popup__error-exists"></p>
-                        <p class="popup__undernote">или <a href="#" class="popup__underlink">Зарегистрироваться</a></p>
+                        <p class="popup__undernote">или <a class="popup__underlink">Зарегистрироваться</a></p>
                     </form>
                 </div>
                 <div class="popup_registered">

@@ -34,11 +34,8 @@ export class Card {
                             if (res.ok){
                                 return res.json()
                             }
-                            else Promise.reject(res.statusText)
-                                .catch((err)=>{
-                                    this.card.querySelector('.news-article__remove').innerHTML = err;
-                                    this.card.querySelector('.news-article__remove').style.display = 'block';
-                                })
+                            else  return Promise.reject(res.statusText)
+                        
                         })
                         .then((resp)=>{
                             this.card.querySelector('.news-article__save').style.backgroundImage = `url("${savedPic}")`;
@@ -57,11 +54,8 @@ export class Card {
                             if (res.ok){
                                 this.card.querySelector('.news-article__save').style.backgroundImage = 'url("./images/Rectangle 8.png")';
                             }
-                            else Promise.reject(res.statusText)
-                            .catch((err)=>{
-                                this.card.querySelector('.news-article__remove').value = err;
-                                this.card.querySelector('.news-article__remove').style.display = 'block';
-                            })
+                            else return Promise.reject(res.statusText)
+                            
                         })
                         .catch((err)=>{
                             this.card.querySelector('.news-article__remove').value = err;

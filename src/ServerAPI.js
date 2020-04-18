@@ -3,7 +3,7 @@ export class ServerAPI {
         this.data = data;
     }
 
-    SignUp(){
+    signUp(){
         const email = this.data[0];
         const password = this.data[1];
         const name = this.data[2];
@@ -21,7 +21,7 @@ export class ServerAPI {
         })
     }
 
-    SignIn(){
+    signIn(){
         const email = this.data[0];
         const password = this.data[1];
 

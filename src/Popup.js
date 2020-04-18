@@ -6,7 +6,6 @@ export class Popup {
         this.close = elem.querySelector('.popup__close');
         this.swap = elem.querySelector('.popup__underlink');
         this.submit = this.form.submitBtn;
-        this._applyEvents();
 }
 
     show() {
@@ -28,26 +27,71 @@ export class Popup {
             return /^\w+(([-\.])\w+)*@\w{2,}(\.\w{2,})+$/.test(field);
         }
         else{
-            return /^[A-Z][a-z]*-[A-Z][a-z]*|[A-Z][a-z]*$/.test(field);
+            return /^[A-z0-9]{2,32}$/.test(field);
         }
     }
 
-    _applyEvents(){
+    applySignUpEvents(){
         this.close.addEventListener('click', ()=>{
             this.hide();
         });
         this.form.email.addEventListener('input', (event)=>{
-            if (!this._validate(this.form.email.value, true)) {
-                document.querySelector('.popup__error').style.display = 'block';
-                this.submit.setAttribute("disabled", "");
+            if (this._validate(this.form.email.value, true) && this._validate(this.form.password.value, false) && this._validate(this.form.name.value, false)) {
+                this.form.querySelector('.popup__error').style.display = 'none';
+                this.submit.removeAttribute("disabled");
             }
             else {
-                document.querySelector('.popup__error').style.display = 'none';
+                this.form.querySelector('.popup__error').style.display = 'block';
+                this.submit.setAttribute("disabled", "");
+            }
+        });
+
+        this.form.password.addEventListener('input', ()=>{
+            if (this._validate(this.form.email.value, true) && this._validate(this.form.password.value, false) && this._validate(this.form.name.value, false)) {
+                this.form.querySelector('.popup__error').style.display = 'none';
                 this.submit.removeAttribute("disabled");
+            }
+            else {
+                this.form.querySelector('.popup__error').style.display = 'block';
+                this.submit.setAttribute("disabled", "");
+            }
+        });
+
+        this.form.name.addEventListener('input', ()=>{
+            if (this._validate(this.form.email.value, true) && this._validate(this.form.password.value, false) && this._validate(this.form.name.value, false)) {
+                this.form.querySelector('.popup__error').style.display = 'none';
+                this.submit.removeAttribute("disabled");
+            }
+            else {
+                this.form.querySelector('.popup__error').style.display = 'block';
+                this.submit.setAttribute("disabled", "");
+            }
+        });
+    }
+
+    applySignInEvents(){
+        this.close.addEventListener('click', ()=>{
+            this.hide();
+        });
+        this.form.email.addEventListener('input', (event)=>{
+            if (this._validate(this.form.email.value, true) && this._validate(this.form.password.value, false)) {
+                this.form.querySelector('.popup__error').style.display = 'none';
+                this.submit.removeAttribute("disabled");
+            }
+            else {
+                this.form.querySelector('.popup__error').style.display = 'block';
+                this.submit.setAttribute("disabled", "");
             }
         });
         this.form.password.addEventListener('input', ()=>{
-            this._validate(this.form.password.value, false);
+            if (this._validate(this.form.email.value, true) && this._validate(this.form.password.value, false)) {
+                this.form.querySelector('.popup__error').style.display = 'none';
+                this.submit.removeAttribute("disabled");
+            }
+            else {
+                this.form.querySelector('.popup__error').style.display = 'block';
+                this.submit.setAttribute("disabled", "");
+            }
         });
 
     }
