@@ -1,0 +1,23 @@
+@import url('./__poweredby/footer__poweredby.css');
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #FFFFFF;
+}
+
+@media only screen and (max-width : 767px) {
+    .footer{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .footer{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,35 @@
+.news-article__save{
+    background: #FFFFFF;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    background-image: url("../../../images/Rectangle 8.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.news-article__save:hover{
+    background-image: url("../../../images/Rectangle_hover.png");
+}
+
+
+@media only screen and (max-width : 1024px) {
+    .news-article__save{
+        top: 8px;
+        right: 8px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-article__save{
+        top: 16px;
+        right: 16px;
+    }
+}

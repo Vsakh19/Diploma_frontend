@@ -1,0 +1,7 @@
+.link-block__img{
+    margin-left: 42px;
+}
+
+.link-block__img:nth-of-type(2n){
+    margin-left: 28px;
+}

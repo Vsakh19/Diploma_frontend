@@ -1,0 +1,30 @@
+.link-block__link{
+    text-decoration: none;
+    margin-left: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #1A1B22;
+}
+
+@media only screen and (max-width : 770px) {
+    .link-block__link:first-of-type{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block__link:first-of-type{
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    .link-block__link{
+        margin-left: 0;
+        text-align: left;
+    }
+}

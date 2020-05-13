@@ -1,0 +1,19 @@
+@import url('./_theme/header-menu__heading_theme_black.css');
+
+.header-menu__heading{
+    margin: 2px 0 0 0;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+
+@media only screen and (max-width : 560px) {
+    .header-menu__heading{
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

@@ -1,0 +1,29 @@
+.news-article__tag{
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    top: 24px;
+    left: 24px;
+}
+
+@media only screen and (max-width : 1024px) {
+    .news-article__tag{
+        top: 8px;
+        left: 8px;
+    }
+}
+
+@media only screen and (max-width : 560px) {
+    .news-article__tag{
+        top: 16px;
+        left: 16px;
+    }
+}

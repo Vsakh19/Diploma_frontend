@@ -1,0 +1,17 @@
+.header-saved-content__micro-heading{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: rgba(26, 27, 34, 0.5);
+    margin: 0 0 28px 0;
+}
+
+@media only screen and (max-width : 768px) {
+    .header-saved-content__micro-heading{
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0 0 16px 0;
+    }
+}

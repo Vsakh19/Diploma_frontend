@@ -1,0 +1,15 @@
+@import url('./_active/header-group__link_active.css');
+@import url('./_theme/header-group__link_active_theme_black.css');
+@import url('./_type/header-group__link_type_home_theme_black.css');
+@import url('./_mobile/header-group__link_mobile.css');
+
+.header-group__link{
+    margin-left: 34px;
+    text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #B6BCBF;
+}

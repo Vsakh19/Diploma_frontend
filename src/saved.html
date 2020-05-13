@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    <title>NewsExplorer</title>
+</head>
+<body>
+<header>
+    <div class="header-menu_mobile_white">
+        <p class="header-menu__heading_theme_black">NewsExplorer</p>
+        <div class="header-menu_mobile__button_black headerOpen"></div>
+    </div>
+    <div class="menu-shadow">
+        <div class="header-menu_mobile_white">
+            <p class="header-menu__heading_theme_black">NewsExplorer</p>
+            <div class="header-menu_mobile__close-button_black headerClose"></div>
+        </div>
+        <ul class="header-group_mobile_white">
+            <li class="header-group__auth-li"><a href="/" class="header-group__link_mobile_black">Главная</a></li>
+            <li class="header-group__auth-li"><a href="saved.html" class="header-group__link_mobile_black saved">Сохранённые статьи</a></li>
+            <li class="header-group__auth-li"><a class="header-group__auth-link_mobile_black signoutBtn"> <img class="header-group__logout-pic" alt="logout" src="<%=require('./images/logout.png')%>"></a></li>
+        </ul>
+    </div>
+<div class="header-menu_theme_black">
+    <p class="header-menu__heading_theme_black">NewsExplorer</p>
+    <ul class="header-group">
+        <li><a href="/" class="header-group__link_type_home_theme_black">Главная</a></li>
+        <li><a href="saved.html" class="header-group__link_active_theme_black saved">Сохранённые статьи</a></li>
+        <li><a class="header-group__auth-link_theme_black signoutBtn"> <img class="header-group__logout-pic" alt="logout" src="<%=require('./images/logout_black.png')%>"></a></li>
+    </ul>
+</div>
+    <div class="header-saved-content">
+        <p class="header-saved-content__micro-heading">Сохранённые статьи</p>
+        <h1 class="header-saved-content__heading"></h1>
+
+    </div>
+</header>
+<section class="saved-field">
+    <div class="news-grid">
+    </div>
+</section>
+<footer class="footer">
+    <p class="footer__poweredby">© 2020 Supersite, Powered by News ServerAPI</p>
+    <div class="link-block_mobile">
+        <div class="link-block_mobile__container">
+            <a href="/" class="link-block__link">Главная</a>
+            <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
+        </div>
+        <div class="link-block_mobile__img-container">
+            <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="<%=require('./images/Git.png')%>"></a>
+            <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="<%=require('./images/Facebook.png')%>"></a>
+        </div>
+    </div>
+    <div class="link-block">
+        <a href="/" class="link-block__link">Главная</a>
+        <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
+        <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="<%=require('./images/Git.png')%>"></a>
+        <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="<%=require('./images/Facebook.png')%>"></a>
+    </div>
+</footer>
+<script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.saved-field{
+    padding: 62px 104px;
+    background: #F5F6F7;
+}
+
+
+@media only screen and (max-width : 560px) {
+    .saved-field{
+        padding: 1px 16px;
+    }
+}

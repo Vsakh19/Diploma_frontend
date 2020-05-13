@@ -1,0 +1,17 @@
+.popup__input{
+    outline: none;
+    opacity: 0.2;
+    border: none;
+    border-bottom: 1px solid #000000;
+    margin: 9px 0 31px 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.popup__input:focus{
+    opacity: 1;
+}

@@ -1,0 +1,33 @@
+.search-form__field{
+    background: #FFFFFF;
+    border: 1px solid #D1D2D6;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    width: 608px;
+    height: 64px;
+    padding-left: 24px;
+    outline: none;
+}
+
+.search-form__field::placeholder{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #B6BCBF;
+}
+
+@media only screen and (max-width : 900px) {
+    .search-form__field{
+        width: 448px;
+        height: 56px;
+    }
+}
+
+@media only screen and (max-width : 520px) {
+    .search-form__field{
+        width: 100%;
+    }
+}

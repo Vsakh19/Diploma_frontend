@@ -1,0 +1,28 @@
+.news-article__background{
+    width: 400px;
+    height: 272px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    background-size: cover;
+}
+
+@media only screen and (max-width : 1440px) {
+    .news-article__background{
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    .news-article__background{
+        width: 224px;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-article__background{
+        width: 288px;
+        height: 196px;
+    }
+}

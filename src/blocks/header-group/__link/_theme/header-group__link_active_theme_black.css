@@ -1,0 +1,18 @@
+.header-group__link_active_theme_black{
+    border-bottom: 3px solid #1A1B22;
+    padding-bottom: 23px;
+    color: #1A1B22;
+    margin-left: 34px;
+    text-decoration: none;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+@media only screen and (max-width : 768px) {
+    .header-group__link_active_theme_black{
+        padding-bottom: 16px;
+    }
+}

@@ -1,0 +1,14 @@
+@media only screen and (max-width : 1160px) {
+    .author-pic{
+        width: 232px;
+        height: 232px;
+    }
+}
+
+@media only screen and (max-width : 590px) {
+    .author-pic {
+        width: 272px;
+        height: 272px;
+        margin-bottom: 24px;
+    }
+}

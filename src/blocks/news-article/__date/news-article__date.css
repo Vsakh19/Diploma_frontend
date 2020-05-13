@@ -1,0 +1,23 @@
+.news-article__date{
+    font-family: Source Sans Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #B6BCBF;
+    margin: 20px 0 12px 24px;
+}
+
+@media only screen and (max-width : 1440px) {
+    .news-article__date{
+        margin: 16px 0 12px 16px;
+    }
+}
+
+@media only screen and (max-width : 500px) {
+    .news-article__date{
+        margin: 16px 0 10px 16px;
+    }
+}

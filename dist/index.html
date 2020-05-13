@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.7e1da090e84df4518cbb.css">
+    <title>NewsExplorer</title>
+</head>
+<body>
+    <div class = "page">
+        <header class="header">
+            <div class="header-menu_mobile">
+                <p class="header-menu__heading">NewsExplorer</p>
+                <div class="header-menu_mobile__button"></div>
+            </div>
+            <div class="menu-shadow">
+                <div class="header-menu_mobile_black">
+                    <p class="header-menu__heading">NewsExplorer</p>
+                    <div class="header-menu_mobile__close-button"></div>
+                </div>
+            <ul class="header-group_mobile">
+
+
+                    <li class="header-group__auth-li"><a href="/" class="header-group__link_mobile">Главная</a></li>
+                    <li class="header-group__auth-li"><a href="saved.html" class="header-group__link_mobile">Сохранённые статьи</a></li>
+                    <li class="header-group__auth-li"><a href="#" class="header-group__auth-link_mobile">Авторизоваться</a></li>
+                    <li class="header-group__auth-li"><a href="#" class="header-group__auth-link_mobile">Грета <img class="header-group__logout-pic" alt="logout" src="./images/logout.png"></a></li>
+
+            </ul>
+            </div>
+            <div class="header-menu">
+               <p class="header-menu__heading">NewsExplorer</p>
+                <ul class="header-group">
+                    <li><a href="/" class="header-group__link_active">Главная</a></li>
+                    <li><a href="saved.html" class="header-group__link">Сохранённые статьи</a></li>
+                    <li><a href="#" class="header-group__auth-link">Авторизоваться</a></li>
+                    <li><a href="#" class="header-group__auth-link">Грета <img class="header-group__logout-pic" alt="logout" src="./images/logout.png"></a></li>
+                </ul>
+            </div>
+            <div class="content-field">
+                <div class="header-content">
+                    <h1 class="header-content__heading">Что в мире творится?</h1>
+                    <p class="header-content__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+                    <form action="search.html" class="search-form">
+                        <input class="search-form__field" type="text" placeholder="Введите тему новости">
+                        <button class="search-form__submit-button" type="submit">Искать</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <section class="about">
+            <img class="author-pic" alt="author picture" src="./images/image-03.png">
+            <div class="comment">
+                <h2 class="comment__heading">Об авторе</h2>
+                <p class="comment__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.<br><br>Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+            </div>
+        </section>
+        <section class="popup popup__reg_disabled">
+            <div class="popup__shadow">
+                <div class="popup__reg popup__reg_disabled">
+                    <div class="popup__close"></div>
+                    <form class="popup__regform">
+                        <h2 class="popup__label">Регистрация</h2>
+                        <label for="email-reg" class="popup__input-title">Email</label>
+                        <input id="email-reg" type="text" class="popup__input" placeholder="Введите почту">
+                        <label class="popup__input-title" for="password-reg">Пароль</label>
+                        <input id="password-reg" type="password" class="popup__input" placeholder="Введите пароль">
+                        <label class="popup__input-title" for="name">Имя</label>
+                        <input id="name" type="text" class="popup__input" placeholder="Введите своё имя">
+                        <button class="popup__submit">Зарегистрироваться</button>
+                        <p class="popup__undernote">или <a href="#" class="popup__underlink">Войти</a></p>
+                    </form>
+                </div>
+                <div class="popup__reg">
+                    <div class="popup__close"></div>
+                    <form class="popup__regform">
+                        <h2 class="popup__label">Вход</h2>
+                        <label for="email" class="popup__input-title">Email</label>
+                        <input id="email" type="text" class="popup__input" placeholder="Введите почту">
+                        <label class="popup__input-title" for="password">Пароль</label>
+                        <input id="password" type="password" class="popup__input" placeholder="Введите пароль">
+                        <button class="popup__submit">Войти</button>
+                        <p class="popup__undernote">или <a href="#" class="popup__underlink">Зарегистрироваться</a></p>
+                    </form>
+                </div>
+                <div class="popup__reg_disabled">
+                <div class="popup_registered">
+                    <div class="popup__close"></div>
+                    <h2 class="popup__label-registered">Пользователь успешно зарегистрирован!</h2>
+                    <a href="#" class="popup__login">Выполнить вход</a>
+                </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <p class="footer__poweredby">© 2020 Supersite, Powered by News API</p>
+            <div class="link-block_mobile">
+                <div class="link-block_mobile__container">
+                <a href="/" class="link-block__link">Главная</a>
+                <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
+                </div>
+                <div class="link-block_mobile__img-container">
+                <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="images/Git.png"></a>
+                <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="images/Facebook.png"></a>
+                </div>
+            </div>
+            <div class="link-block">
+                <a href="/" class="link-block__link">Главная</a>
+                <a href="https://praktikum.yandex.ru" class="link-block__link">Яндекс.Практикум</a>
+                <a href="https://github.com/Vsakh19/Diploma_frontend" class="link-block__img"><img alt="Git" src="images/Git.png"></a>
+                <a href="https://www.facebook.com/vladislav.sakharov.7" class="link-block__img"><img alt="Facebook" src="images/Facebook.png"></a>
+            </div>
+        </footer>
+    </div>
+<script src="main.a4c5e695ed9327680cd8.js"></script>
+</body>
+</html>
